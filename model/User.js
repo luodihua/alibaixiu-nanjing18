@@ -102,7 +102,6 @@ User.findOne({'email': 'itheima@itcast.cn'}).then(async result => {
 			password: password,
 			role: 'admin',
 			avatar: null,
-
 			createTime: new Date,
 			status: 1
 		});

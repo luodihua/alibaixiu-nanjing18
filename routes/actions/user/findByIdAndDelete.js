@@ -62,5 +62,5 @@ module.exports = async (req, res) => {
 		// 响应
 		res.send(user);
 	}
-	
+
 };
