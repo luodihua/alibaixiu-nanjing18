@@ -12,8 +12,9 @@ module.exports = async (req, res) => {
 	const { error } = Joi.validate(id, schema);
 	// 数据格式没有通过验证
 	if (error) return res.status(400).send({message: error.message});
+	// console.log(req.fields);
 
 	let comment = await Comment.findByIdAndUpdate(id, {$set: {state: req.fields.state}}, {new: true});
 	// 响应
-	res.send(comment);	
+	res.send(comment);
 };

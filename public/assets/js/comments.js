@@ -1,3 +1,17 @@
+// 添加一些模拟数据
+// $.ajax({
+// 	type: 'post',
+// 	url: '/comments',
+// 	data: {
+// 		author: '5dc01796ad6aaf5060998b03',	// 用户的id
+// 		content: 'adfas fasdf asdf asdf asf asf a',
+// 		post: '5dc018ee5c917018746c80f0',	// 文章的id
+// 	},
+// 	success: function( res){
+// 		console.log(res);
+// 	 }
+// });
+
 // 向服务器端发送请求 获取评论列表数据
 $.ajax({
 	type: 'get',

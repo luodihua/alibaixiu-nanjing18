@@ -3,8 +3,8 @@ $.ajax({
 	type: 'get',
 	url: '/posts',
 	success: function (response) {
+		console.log(response);
 		var html = template('postsTpl', response);
-		// template.defaults.imports.formateDate = formateDate;
 		$('#postsBox').html(html);
 		var page = template('pageTpl', response);
 		$('#page').html(page);
