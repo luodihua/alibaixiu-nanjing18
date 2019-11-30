@@ -1,5 +1,12 @@
 // 路由集合
 module.exports = app => {
+
+	// 首页
+	app.get('/', (req, res)=>{
+		console.log('11');
+
+		// res.render('./index.html');
+	});
 	// 用户
 	app.use('/users', require('./user'));
 	// 分类

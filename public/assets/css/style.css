@@ -1096,6 +1096,13 @@ img {
   color: #ff5e52;
 }
 
+.content .article .content-detail {
+	line-height: 1.8em;
+	/* white-space: pre-wrap; */
+	white-space: pre-line;
+	/* text-indent: 2em; */
+}
+
 .aside {
   width: 280px;
   margin: 20px;

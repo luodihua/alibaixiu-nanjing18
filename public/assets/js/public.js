@@ -76,7 +76,7 @@ $.ajax({
 		var navTpl = `
 			{{each data}}
 			<li>
-				<a href="list.html?categoryId={{$value._id}}">
+				<a href="list.html?categoryId={{$value._id}}&title={{$value.title}}">
 					<i class="fa {{$value.className}}"></i>{{$value.title}}
 				</a>
 			</li>

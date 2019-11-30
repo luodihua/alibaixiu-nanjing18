@@ -21,7 +21,7 @@
       <button class="btn btn-default navbar-btn fa fa-bars"></button>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="password-reset.html"><i class="fa fa-user"></i>修改密码</a></li>
-        <li><a href="javascript:;"><i class="fa fa-sign-out"></i>退出</a></li>
+        <li><a href="javascript:;" id="logout"><i class="fa fa-sign-out"></i>退出</a></li>
       </ul>
     </nav>
     <div class="container-fluid">
@@ -140,8 +140,10 @@
       <div class="col-md-3">
         <div class="form-group">
           <label for="feature">文章封面</label>
-          <!-- show when image chose -->
-          <img class="help-block thumbnail" style="display: none">
+		  <!-- show when image chose -->
+		  {{if thumbnail}}
+		  <img class="help-block thumbnail" style="display:" id="coverPreview" src="{{thumbnail}}">
+		  {{/if}}
           <input id="feature" class="form-control" type="file">
           <input type="hidden" name="thumbnail" id="thumbnail" value="{{thumbnail}}">
         </div>

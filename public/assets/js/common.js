@@ -28,7 +28,7 @@ if(typeof userId != 'undefined'){
 	type: 'get',
 	url: '/users/' + userId,
 	success: function (response) {
-		$('.avatar').attr('src', response.avatar)
+		$('.profile .avatar').attr('src', response.avatar)
 		$('.profile .name').html(response.nickName)
 	}
 	})

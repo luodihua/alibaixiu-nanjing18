@@ -10,7 +10,8 @@ $.ajax({
 })
 
 // 当管理员选择文件的时候 触发事件
-$('#feature').on('change', function () {
+$('#parentBox').on('change', '#feature', function () {
+	console.log(111);
 	// 获取到管理员选择到的文件
 	var file = this.files[0];
 	// 创建formData对象 实现二进制文件上传

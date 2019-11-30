@@ -22,8 +22,8 @@ app.use(session({
 app.use(formidableMiddleware({
 	// 文件上传目录
 	uploadDir: path.join(__dirname, 'public', 'uploads'),
-	// 最大上传文件为2M
-	maxFileSize: 2 * 1024 * 1024,
+	// 最大上传文件为10M
+	maxFileSize: 10 * 1024 * 1024,
 	// 保留文件扩展名
 	keepExtensions: true
 }));
@@ -36,4 +36,4 @@ mongoose.connect('mongodb://itcast:itcast@localhost:27017/alibaixiu', { useNewUr
 // 路由
 require('./routes')(app);
 // 返回系统监听
-app.listen(3000, () => console.log('服务器启动成功'));
+app.listen(80, () => console.log('服务器启动成功'));

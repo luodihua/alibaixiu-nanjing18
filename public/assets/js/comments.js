@@ -46,7 +46,7 @@ function changePage (page) {
 // 当审核按钮被点击的时候
 $('#commentsBox').on('click', '.status', function () {
 	// 获取当前评论的状态
-	var status = $(this).attr('data-status');
+	var state = $(this).attr('data-status');
 	// 获取当前要修改的评论id
 	var id = $(this).attr('data-id');
 	// 向服务器端发送请求 更改评论状态
@@ -54,7 +54,7 @@ $('#commentsBox').on('click', '.status', function () {
 		type: 'put',
 		url: '/comments/' + id,
 		data: {
-			state: status == 0 ? 1 : 0
+			state: state == 0 ? 1 : 0
 		},
 		success: function () {
 			location.reload();

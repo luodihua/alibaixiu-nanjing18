@@ -32,7 +32,7 @@ $.ajax({
 	success: function (response) {
 		review = response.review
 		// 判断管理员是否开启的评论功能
-		if (response.comment) {
+		if (response.comment && typeof userId != 'undefined') {
 			// 管理员开启了评论功能 渲染评论模板
 			var html = template('commentTpl');
 			// 渲染评论模板
@@ -47,7 +47,7 @@ $('#comment').on('submit', 'form', function () {
 	var content = $(this).find('textarea').val();
 	// 代表评论的状态
 	var state;
-		
+
 	if (review) {
 		// 要经过人工审核
 		state = 0;
@@ -58,12 +58,13 @@ $('#comment').on('submit', 'form', function () {
 
 	// 向服务器端发送请求 执行添加评论操作
 	$.ajax({
-		type: 'get',
+		type: 'post',
 		url: '/comments',
 		data: {
 			content: content,
 			post: postId,
-			state: state
+			state: state,
+			author: userId
 		},
 		success: function () {
 			alert('评论成功')

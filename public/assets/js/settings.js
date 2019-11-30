@@ -26,19 +26,25 @@ $('#logo').on('change', function () {
 $('#settingsForm').on('submit', function () {
 	// 获取管理员在表单中输入的内容
 	var formData = $(this).serialize();
+	if($('input[name="comment"]').prop('checked') == false){
+		formData += "&comment=false";
+	}
+	if($('input[name="review"]').prop('checked') == false){
+		formData += "&review=false";
+	}
+	console.log(formData)
 	// 向服务器端发送请求 实现网站设置数据添加功能
 	$.ajax({
 		type: 'post',
 		url: '/settings',
 		data: formData,
 		success: function () {
-			location.reload();
+			// location.reload();
 		}
 	})
 	// 阻止表单默认提交行为
 	return false;
 })
-
 // 向服务器端发送请求 索要网站设置数据
 $.ajax({
 	type: 'get',
@@ -48,8 +54,14 @@ $.ajax({
 		if (response) {
 			// 将logo地址存储在隐藏域中
 			$('#hiddenLogo').val(response.logo)
-			// 将logo显示在页面中 
+			// 将logo显示在页面中
 			$('#preview').attr('src', response.logo)
+			// 将网站标题显示在页面中
+			$('input[name="title"]').val(response.title);
+			// 将网站描述显示在页面中
+			$('textarea[name="description"]').val(response.description);
+			// 将网站关键字显示在页面中
+			$('input[name="keywords"]').val(response.keywords);
 			// 将网站标题显示在页面中
 			$('input[name="title"]').val(response.title);
 			// 将是否开启评论功能显示在页面中
